@@ -1,11 +1,16 @@
 import React from 'react'
+import MovieCard from '../components/MovieCard'
 
 const Home = () => {
   return (
-    <div>
+    <>
+
+      <MovieCard title='Avatar' />
+      <MovieCard title='Avenger' />
 
 
-    </div>
+
+    </>
   )
 }
 
