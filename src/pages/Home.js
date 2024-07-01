@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <>
 
-      <MovieCard title='Avatar' />
+      <MovieCard title='Avatar' rating={9.5} />
       <MovieCard title='Avenger' />
 
 
