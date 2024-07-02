@@ -1,20 +1,12 @@
 import React from 'react'
-import Home from './pages/Home'
+import Header from './components/Header'
+import DisplaySec from './pages/home/DisplaySec'
 
 const App = () => {
-
-  const person = {
-    nam: 'hari',
-    age: 90
-  };
-
-  const { nam, age } = person;
-
   return (
     <div>
-
-      <Home />
-
+      <Header />
+      <DisplaySec />
 
     </div>
   )
