@@ -2,9 +2,9 @@ import React from 'react'
 
 const DisplaySec = () => {
   return (
-    <div className='grid grid-cols-2 items-center'>
+    <div className='grid grid-cols-2 items-center '>
 
-      <div className="dis-img h-[470px]">
+      <div className="dis-img">
 
         <dotlottie-player src="https://lottie.host/27af2812-b66e-470e-aa2b-a691e6b34886/cozAQH3gRT.json" background="transparent" speed="1" loop autoplay></dotlottie-player>
 
