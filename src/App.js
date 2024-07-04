@@ -14,7 +14,7 @@ const App = () => {
       element: <Home />,
       children: [
         {
-          path: 'page1',
+          index: true,
           element: <Page1 />
         },
         {
