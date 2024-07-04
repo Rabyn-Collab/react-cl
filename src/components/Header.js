@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaBarsStaggered } from "react-icons/fa6";
+import { NavLink } from 'react-router-dom';
 const Header = () => {
 
 
@@ -10,8 +11,11 @@ const Header = () => {
 
       <FaBarsStaggered className='hidden sm:flex' />
       <nav className='space-x-2 sm:hidden'>
-        <a className='s-link' href="">About</a>
-        <a className='s-link' href="">Contact</a>
+
+        <NavLink to='/about-page' className='s-link' >About</NavLink>
+
+
+        <NavLink to='/contact-page' className='s-link' >Contact</NavLink>
       </nav>
 
     </header>
