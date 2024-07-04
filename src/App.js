@@ -12,6 +12,9 @@ const App = () => {
   return (
     <div>
 
+
+
+
       <Header />
       <DisplaySec />
       <Tech />
