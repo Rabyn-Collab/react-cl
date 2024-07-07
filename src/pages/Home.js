@@ -1,17 +1,20 @@
 import React from 'react'
-import Header from '../components/Header'
-import { NavLink, Outlet } from 'react-router-dom'
+import { useNavigate } from 'react-router';
+import { posts } from '../dummy/data';
 
 const Home = () => {
-  return (
-    <div>
-      <Header />
-      <h1>Hello Im Home</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt vel assumenda sequi ex adipisci, aut quam iste distinctio aliquid dolorem aspernatur porro temporibus, iure repellat minus blanditiis consequatur accusamus eum.</p>
 
-      <NavLink to='/'>Page1</NavLink>
-      <NavLink to='/page2'>Page2</NavLink>
-      <Outlet />
+  const nav = useNavigate();
+
+
+  return (
+    <div className='p-2 space-y-2'>
+
+      {posts.map((post, i) => {
+        return <div className='shadow-lg p-4 cursor-pointer' key={post.id}>
+          <h1>{post.title}</h1>
+        </div>
+      })}
 
     </div>
   )
