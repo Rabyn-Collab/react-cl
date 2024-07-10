@@ -19,6 +19,10 @@ export const posts = [
 ];
 
 
+export const getDataById = (id) => {
+  // console.log(1 === '1');
+  return posts.find((post) => post.id === Number(id));
+}
 
 export const movieData = {
   "Title": "Avatar",

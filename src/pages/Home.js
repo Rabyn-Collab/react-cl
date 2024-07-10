@@ -1,21 +1,23 @@
-import React from 'react'
-import { useNavigate } from 'react-router';
-import { posts } from '../dummy/data';
+import React, { useState } from 'react'
 
 const Home = () => {
+  // sfdkjndsf
 
-  const nav = useNavigate();
+  const [count, setCount] = useState(0);
 
+  const handleAdd = () => {
+    setCount((prev) => prev + 1);
+  }
+
+  console.log('render');
 
   return (
-    <div className='p-2 space-y-2'>
+    <div>
 
-      {posts.map((post, i) => {
-        return <div className='shadow-lg p-4 cursor-pointer' key={post.id}>
-          <h1>{post.title}</h1>
-        </div>
-      })}
+      <h1>{count}odd number</h1>
 
+
+      <button onClick={handleAdd}>addN</button>
     </div>
   )
 }
