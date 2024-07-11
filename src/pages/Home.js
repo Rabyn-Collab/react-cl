@@ -1,23 +1,40 @@
-import React, { useState } from 'react'
+import { useFormik } from 'formik'
+import React from 'react'
+
 
 const Home = () => {
-  // sfdkjndsf
 
-  const [count, setCount] = useState(0);
 
-  const handleAdd = () => {
-    setCount((prev) => prev + 1);
-  }
 
-  console.log('render');
-
+  const formik = useFormik({
+    initialValues: {
+      username: ''
+    },
+    onSubmit: (val) => {
+      console.log(val);
+    },
+  });
+  // sdlkjdsf
   return (
-    <div>
-
-      <h1>{count}odd number</h1>
+    <div className='p-4 '>
 
 
-      <button onClick={handleAdd}>addN</button>
+
+      <form onSubmit={formik.handleSubmit}>
+
+        <input
+          name='username'
+          value={formik.values.username}
+          onChange={formik.handleChange}
+          className='border-2 border-black'
+          type="text"
+          placeholder='your name' />
+
+      </form>
+
+
+
+
     </div>
   )
 }
