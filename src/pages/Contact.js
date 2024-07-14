@@ -4,8 +4,8 @@ const Contact = () => {
   return (
     <div>
 
-      <h1>This is Contact Page</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A fugiat qui aut rem aperiam suscipit omnis exercitationem hic debitis reiciendis, incidunt officia consequuntur et iste autem, deleniti quaerat, nisi temporibus!</p>
+      <h1>Contact</h1>
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa sapiente nemo earum architecto ducimus exercitationem nobis, ullam, libero iure ea dolores error perferendis repellat in id nisi ab delectus. Minus.</p>
     </div>
   )
 }

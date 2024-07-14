@@ -10,6 +10,7 @@ module.exports = {
       'md': { 'max': '768px' },
       'sm': { 'max': '640px' },
     },
+
   },
   plugins: [],
 }
