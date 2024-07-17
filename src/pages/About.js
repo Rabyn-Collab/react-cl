@@ -2,12 +2,11 @@ import React from 'react'
 
 const About = () => {
   return (
-    <>
+    <div>
 
-      <h1>About Page</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe rerum hic vero? Sunt dolores a voluptate est iusto tenetur blanditiis numquam maiores, cumque nihil, magni, impedit perferendis! Maiores, quia nesciunt?</p>
-
-    </>
+      <h1>This is about page</h1>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae quibusdam beatae dicta, quisquam quos labore voluptates error porro veniam tempora in alias libero non eius aliquam animi tenetur, mollitia voluptatum?</p>
+    </div>
   )
 }
 

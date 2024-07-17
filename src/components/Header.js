@@ -3,16 +3,15 @@ import { NavLink } from 'react-router-dom'
 
 const Header = () => {
   return (
-    <header className='bg-black text-white py-2 px-2 flex justify-between'>
+    <div className='bg-black text-white px-3 py-3 border-2 border-sky-600 flex justify-between'>
+      <h1>Web Tail</h1>
 
-      <h1 className=''>Web Logo</h1>
-      <nav className='space-x-4 sm:hidden'>
+      <nav className='space-x-5'>
         <NavLink to={'/about-page'}>About</NavLink>
         <NavLink to={'/contact-page'}>Contact</NavLink>
-
       </nav>
 
-    </header>
+    </div>
   )
 }
 

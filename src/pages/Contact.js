@@ -3,9 +3,10 @@ import React from 'react'
 const Contact = () => {
   return (
     <div>
+      <h1>THis is contact Page</h1>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus, iste suscipit. Ipsa eveniet iste libero, voluptatum, alias repudiandae voluptates illum odit, aut doloremque accusamus earum nihil totam debitis autem nam!</p>
 
-      <h1>Contact</h1>
-      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa sapiente nemo earum architecto ducimus exercitationem nobis, ullam, libero iure ea dolores error perferendis repellat in id nisi ab delectus. Minus.</p>
+
     </div>
   )
 }
