@@ -6,6 +6,14 @@ import Home from './features/dashboard/Home';
 
 const App = () => {
 
+  // const j = 'na';
+
+
+  // const ni = {
+  //   [j]: 'jee'
+  // };
+
+  // console.log(ni);
 
   const router = createBrowserRouter([
     {
