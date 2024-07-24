@@ -1,10 +1,11 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
 const ItemByCategory = () => {
-  const d = useParams();
-  console.log(d);
+  const nav = useNavigate();
+  const { cata } = useParams();
+
   const [data, setData] = useState();
   const [load, setLoad] = useState(false);
   const [err, setErr] = useState();
@@ -12,9 +13,9 @@ const ItemByCategory = () => {
   const getData = async () => {
     setLoad(true);
     try {
-      const response = await axios.get('www.themealdb.com/api/json/v1/1/filter.php', {
+      const response = await axios.get('https://www.themealdb.com/api/json/v1/1/filter.php', {
         params: {
-          c: 'slkdjsdalkjsad'
+          c: cata
         }
       });
 
@@ -22,6 +23,7 @@ const ItemByCategory = () => {
       setData(response.data);
 
     } catch (err) {
+      console.log(err);
       setErr(err?.message);
 
     } finally {
@@ -43,9 +45,19 @@ const ItemByCategory = () => {
   }
 
 
+  console.log(data);
 
   return (
-    <div>
+    <div className='p-4 grid grid-cols-3 gap-4'>
+
+      {data && data?.meals?.map((meal) => {
+        return <div onClick={() => nav(`/item-detail/${meal.idMeal}`)} key={meal.idMeal} className='shadow-xl'>
+          <h1>{meal.strMeal}</h1>
+          <img src={meal.strMealThumb} alt="" />
+
+        </div>
+      })}
+
 
 
 
