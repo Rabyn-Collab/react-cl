@@ -1,7 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router';
 
-const HomePage = () => {
+const ItemByCategory = () => {
+  const d = useParams();
+  console.log(d);
   const [data, setData] = useState();
   const [load, setLoad] = useState(false);
   const [err, setErr] = useState();
@@ -9,7 +12,11 @@ const HomePage = () => {
   const getData = async () => {
     setLoad(true);
     try {
-      const response = await axios.get('https://www.themealdb.com/api/json/v1/1/categories.php');
+      const response = await axios.get('www.themealdb.com/api/json/v1/1/filter.php', {
+        params: {
+          c: 'slkdjsdalkjsad'
+        }
+      });
 
 
       setData(response.data);
@@ -35,18 +42,10 @@ const HomePage = () => {
     return <h1>{err}</h1>
   }
 
+
+
   return (
-    <div className='p-4 grid grid-cols-3 gap-4'>
-
-
-      {data && data?.categories.map((cata) => {
-        return <div key={cata.idCategory} className='shadow-xl'>
-          <h1>{cata.strCategory}</h1>
-          <img src={cata.strCategoryThumb} alt="" />
-
-        </div>
-      })}
-
+    <div>
 
 
 
@@ -54,4 +53,4 @@ const HomePage = () => {
   )
 }
 
-export default HomePage
+export default ItemByCategory
