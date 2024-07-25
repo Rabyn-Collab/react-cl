@@ -1,10 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router';
 import CategoryCard from '../components/CategoryCard';
 
 const HomePage = () => {
-  const nav = useNavigate();
+
   const [data, setData] = useState();
   const [load, setLoad] = useState(false);
   const [err, setErr] = useState();
@@ -45,7 +44,10 @@ const HomePage = () => {
 
 
       {data && data?.categories.map((cata) => {
-        return <CategoryCard onClick={() => nav(`/category-item/${cata.strCategory}`)} key={cata.idCategory} />;
+        return <CategoryCard
+          cata={cata}
+          key={cata.idCategory
+          } />;
 
       })}
 

@@ -44,17 +44,23 @@ const ItemDetail = () => {
   }
 
 
+
   const meal = data?.meals[0];
-  const st = 'https://www.youtube.com/watch?v=nMyBC9staMU';
+
+
+  const st = meal?.strYoutube?.split('=')[1];
+
 
   return (
     <div className='p-4 '>
       {data && <div>
-        <div className='h-[300px] w-[300px]'>
+        <div>
           <iframe
-            src="https://www.youtube.com/embed/tgbNymZ7vqY">
+            className='aspect-auto h-[300px] w-[400px]'
+            src={`https://www.youtube.com/embed/${st}`}>
           </iframe>
         </div>
+        <p>{meal.strInstructions}</p>
 
       </div>}
 

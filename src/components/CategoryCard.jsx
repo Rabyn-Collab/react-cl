@@ -3,13 +3,24 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter,
   Typography,
+  Button,
 } from "@material-tailwind/react";
+import { useNavigate } from 'react-router-dom';
 
-const CategoryCard = () => {
+const CategoryCard = ({ cata: { strCategory, strCategoryDescription, strCategoryThumb } }) => {
+
+  const nav = useNavigate();
+
+  // const per = {
+  //   ni: {
+  //     a: 9
+  //   }
+  // };
+
+  // const { ni: { a } } = per;
   return (
-    <Card className="max-w-[24rem] overflow-hidden">
+    <Card className=" overflow-hidden">
       <CardHeader
         floated={false}
         shadow={false}
@@ -17,23 +28,23 @@ const CategoryCard = () => {
         className="m-0 rounded-none"
       >
         <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
+          src={strCategoryThumb}
           alt="ui/ux review check"
         />
       </CardHeader>
       <CardBody>
-        <Typography variant="h4" color="blue-gray">
-          UI/UX Review Check
+        <Typography variant="h5" color="blue-gray">
+          {strCategory}
         </Typography>
-        <Typography variant="lead" color="gray" className="mt-3 font-normal">
-          Because it&apos;s about motivating the doers. Because I&apos;m here to
-          follow my dreams and inspire others.
+        <Typography color="gray" className="mt-3 font-normal mb-3">
+          {strCategoryDescription.substring(0, 100) + '...'}
         </Typography>
+        <Button onClick={() => nav(`/category-item/${strCategory}`)}>View Detail</Button>
       </CardBody>
-      <CardFooter>
 
 
-      </CardFooter>
+
+
     </Card>
   )
 }
