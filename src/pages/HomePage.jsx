@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router';
+import CategoryCard from '../components/CategoryCard';
 
 const HomePage = () => {
   const nav = useNavigate();
@@ -44,11 +45,8 @@ const HomePage = () => {
 
 
       {data && data?.categories.map((cata) => {
-        return <div onClick={() => nav(`/category-item/${cata.strCategory}`)} key={cata.idCategory} className='shadow-xl'>
-          <h1>{cata.strCategory}</h1>
-          <img src={cata.strCategoryThumb} alt="" />
+        return <CategoryCard onClick={() => nav(`/category-item/${cata.strCategory}`)} key={cata.idCategory} />;
 
-        </div>
       })}
 
 

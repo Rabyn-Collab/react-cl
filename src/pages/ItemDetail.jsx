@@ -44,19 +44,19 @@ const ItemDetail = () => {
   }
 
 
-  console.log(data);
+  const meal = data?.meals[0];
+  const st = 'https://www.youtube.com/watch?v=nMyBC9staMU';
 
   return (
-    <div className='p-4 grid grid-cols-3 gap-4'>
-      {/* 
-      {data && data?.meals?.map((meal) => {
-        return <div key={meal.idMeal} className='shadow-xl'>
-          <h1>{meal.strMeal}</h1>
-          <img src={meal.strMealThumb} alt="" />
-
+    <div className='p-4 '>
+      {data && <div>
+        <div className='h-[300px] w-[300px]'>
+          <iframe
+            src="https://www.youtube.com/embed/tgbNymZ7vqY">
+          </iframe>
         </div>
-      })} */}
 
+      </div>}
 
 
 
