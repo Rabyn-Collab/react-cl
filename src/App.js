@@ -7,6 +7,16 @@ import ItemDetail from './pages/ItemDetail';
 
 const App = () => {
 
+  // const age = 90;
+
+  // const obj = {
+  //   name: 'ram',
+  //   //age: age
+  //   age
+  // };
+
+  // console.log(obj);
+
   const router = createBrowserRouter([
     {
       path: '/',
