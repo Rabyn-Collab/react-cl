@@ -1,5 +1,3 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
 import CategoryCard from '../components/CategoryCard';
 import { useApiHooks } from '../hooks/apiHooks';
 
