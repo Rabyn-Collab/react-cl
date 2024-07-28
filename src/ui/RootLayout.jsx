@@ -1,12 +1,13 @@
 import React from 'react'
-import { Outlet } from 'react-router'
 import Header from './Header'
+import { Outlet } from 'react-router'
 
 const RootLayout = () => {
   return (
     <>
 
       <Header />
+
       <Outlet />
     </>
   )
