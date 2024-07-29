@@ -1,11 +1,16 @@
 import React from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-
-import HomePage from './features/home/HomePage';
 import RootLayout from './ui/RootLayout';
+import BlogPage from './features/blog/BlogPage';
 
 const App = () => {
+  // const key = 'age';
 
+  // const person = {
+  //   [key]: 90
+  // };
+
+  // console.log(person);
 
   const router = createBrowserRouter([
     {
@@ -14,7 +19,7 @@ const App = () => {
       children: [
         {
           index: true,
-          element: <HomePage />
+          element: <BlogPage />
         },
 
 
