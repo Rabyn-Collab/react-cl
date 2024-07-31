@@ -3,6 +3,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import RootLayout from './ui/RootLayout';
 import BlogPage from './features/blog/BlogPage';
 import { blogSlice } from './features/blog/blogSlice';
+import AddForm from './features/blog/AddForm';
 
 const App = () => {
 
@@ -58,6 +59,10 @@ const App = () => {
         {
           index: true,
           element: <BlogPage />
+        },
+        {
+          path: 'add-blog',
+          element: <AddForm />
         },
 
 
