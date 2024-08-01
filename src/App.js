@@ -7,6 +7,16 @@ import AddForm from './features/blog/AddForm';
 
 const App = () => {
 
+
+  // const g = {
+  //   name: 'ram',
+  //   age: 90
+  // };
+
+  // // g.id = 9;
+
+  // console.log({ ...g, id: 9 });
+
   // const c = {
   //   name: 'hari'
   // };
