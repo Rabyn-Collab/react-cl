@@ -4,9 +4,32 @@ import RootLayout from './ui/RootLayout';
 import BlogPage from './features/blog/BlogPage';
 import { blogSlice } from './features/blog/blogSlice';
 import AddForm from './features/blog/AddForm';
+import EditForm from './features/blog/EditForm';
 
 const App = () => {
 
+  // const g = (a, b) => {
+
+  // }
+
+  // g(9, 'n');
+
+  // const callTo = (func, x, y) => {
+  //   const res = x + y;
+  //   func(res);
+  // }
+
+  // const display = (res) => {
+  //   console.log(res);
+  // }
+  // callTo(display, 9, 100);
+
+
+  // const posts = [
+  //   { id: 1, name: 'ram', gender: 'male' },
+  //   { id: 2, name: 'sita', gender: 'female' },
+  //   { id: 3, name: 'shyam', gender: 'male' },
+  // ];
 
   // const g = {
   //   name: 'ram',
@@ -73,6 +96,11 @@ const App = () => {
         {
           path: 'add-blog',
           element: <AddForm />
+        },
+
+        {
+          path: 'edit-blog/:id',
+          element: <EditForm />
         },
 
 

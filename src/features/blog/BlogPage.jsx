@@ -9,8 +9,11 @@ import {
   Rating,
   IconButton,
 } from "@material-tailwind/react";
+import { useNavigate } from 'react-router';
 
 const BlogPage = () => {
+
+  const nav = useNavigate();
 
   const { blogs } = useSelector((state) => state.blogSlice);
 
@@ -33,7 +36,7 @@ const BlogPage = () => {
             </Typography>
           </CardBody>
           <CardFooter className="pt-0 flex justify-end gap-4">
-            <IconButton>
+            <IconButton onClick={() => nav(`/edit-blog/${blog.id}`)}>
               <i className="fas fa-edit" />
             </IconButton>
             <IconButton>

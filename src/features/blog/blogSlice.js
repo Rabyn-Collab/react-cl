@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getBlogsFromLocal, setBlogToLocal } from "../shared/localStorage";
 
 
 
@@ -7,12 +8,13 @@ import { createSlice } from "@reduxjs/toolkit";
 export const blogSlice = createSlice({
   name: 'blogSlice',
   initialState: {
-    blogs: []
+    blogs: getBlogsFromLocal()
   },
   reducers: {
 
     addBlog: (state, action) => {
       state.blogs.push(action.payload);
+      setBlogToLocal(state.blogs);
     },
 
     removeBlog: (state, action) => {
