@@ -31,6 +31,7 @@ const BlogPage = () => {
 
       {blogs.map((blog, i) => {
         return <Card className="mt-6 " key={blog.id}>
+          <img src={blog.imageShow} alt="" />
           <CardBody>
             <Typography variant="h5" color="blue-gray" className="mb-2">
               {blog.title}

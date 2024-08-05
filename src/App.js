@@ -8,6 +8,16 @@ import EditForm from './features/blog/EditForm';
 
 const App = () => {
 
+
+  // const per = {
+  //   name: 'ram',
+  //   age: 90
+  // };
+
+  // delete per.age;
+
+  // console.log(per);
+
   // const g = (a, b) => {
 
   // }
