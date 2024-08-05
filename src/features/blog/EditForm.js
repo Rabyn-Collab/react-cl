@@ -1,12 +1,11 @@
 import { Button, Checkbox, Input, Option, Radio, Rating, Select, Textarea, Typography } from '@material-tailwind/react'
-import { nanoid } from '@reduxjs/toolkit';
 import { useFormik } from 'formik'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
-import { addBlog } from './blogSlice';
 import { useNavigate, useParams } from 'react-router';
 import { checkData, radioData } from './AddForm';
+import { updateBlog } from './blogSlice';
 
 
 
@@ -38,10 +37,10 @@ const EditForm = () => {
       blogType: blog.blogType,
       colors: blog.colors,
       country: blog.country,
-      rating: blog.rating
+      rating: blog.rating,
     },
     onSubmit: (val) => {
-      dispatch(addBlog({ ...val, id: nanoid() }));
+      dispatch(updateBlog({ ...val, id: id }));
       nav(-1);
     },
     validationSchema: blogSchema
