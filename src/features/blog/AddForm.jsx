@@ -35,6 +35,7 @@ const AddForm = () => {
     image: Yup.mixed().test('fileType', 'invalid image', (e) => {
       return e && fileTypes.includes(e.type);
     }),
+
   });
 
   const formik = useFormik({
@@ -142,9 +143,12 @@ const AddForm = () => {
           <Input
             onChange={(e) => {
               const file = e.target.files[0];
-              formik.setFieldValue('image', file)
-              const imageUrl = URL.createObjectURL(file);
-              formik.setFieldValue('imageShow', imageUrl);
+              formik.setFieldValue('image', file);
+              const reader = new FileReader();
+              reader.readAsDataURL(file);
+              reader.addEventListener('load', (e) => {
+                formik.setFieldValue('imageShow', e.target.result);
+              })
             }}
             name='image'
             type='file'
