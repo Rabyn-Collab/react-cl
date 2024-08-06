@@ -153,7 +153,7 @@ const AddForm = () => {
             name='image'
             type='file'
             label="Select Image" />
-          {formik.values.imageShow && <img src={formik.values.imageShow} alt="" className='mt-3' />}
+          {formik.values.imageShow && !formik.errors.image && <img src={formik.values.imageShow} alt="jhvhjvj" className='mt-3' />}
 
           {formik.errors.image && formik.touched.image && <p className='text-pink-400'>{formik.errors.image}</p>}
         </div>
