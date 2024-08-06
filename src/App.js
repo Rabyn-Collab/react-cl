@@ -8,6 +8,17 @@ import EditForm from './features/blog/EditForm';
 
 const App = () => {
 
+  // const persons = ['ram', 'shyam'];
+
+  // console.log(persons.includes('ram'));
+
+  // let p = null;
+
+  // // p = {
+  // //   name: 'ram'
+  // // };
+
+  // console.log(p?.name);
 
   // const per = {
   //   name: 'ram',

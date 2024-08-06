@@ -18,7 +18,7 @@ export const checkData = [
   { color: 'blue', label: 'Blue', value: 'blue' },
 ];
 
-const fileTypes = ['image/jpg', 'image/jpeg', 'image/png'];
+export const fileTypes = ['image/jpg', 'image/jpeg', 'image/png'];
 
 const AddForm = () => {
   const dispatch = useDispatch();

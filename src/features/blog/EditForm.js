@@ -4,7 +4,7 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 import { useNavigate, useParams } from 'react-router';
-import { checkData, radioData } from './AddForm';
+import { checkData, fileTypes, radioData } from './AddForm';
 import { updateBlog } from './blogSlice';
 
 
@@ -28,6 +28,9 @@ const EditForm = () => {
     colors: Yup.array().min(1).required(),
     country: Yup.string().required(),
     rating: Yup.number().required(),
+    // image: Yup.mixed().test('fileType', 'invalid image', (e) => {
+    //   return e && fileTypes.includes(e.type);
+    // }),
   });
 
   const formik = useFormik({
@@ -38,10 +41,26 @@ const EditForm = () => {
       colors: blog.colors,
       country: blog.country,
       rating: blog.rating,
+      image: null,
+      imageShow: blog.imageShow
     },
     onSubmit: (val) => {
-      dispatch(updateBlog({ ...val, id: id }));
-      nav(-1);
+
+      if (val.image) {
+        if (fileTypes.includes(val.image?.type)) {
+          delete val.image;
+          dispatch(updateBlog({ ...val, id: id }));
+          nav(-1);
+        } else {
+          console.log('image not selected');
+        }
+      } else {
+        delete val.image;
+        dispatch(updateBlog({ ...val, id: id }));
+        nav(-1);
+      }
+
+
     },
     validationSchema: blogSchema
   });
@@ -113,7 +132,7 @@ const EditForm = () => {
             formik.setFieldValue('country', e)
           }}
             name='country'
-
+            value={formik.values.country}
             label="Select Country">
             <Option value='nepal' >Nepal</Option>
             <Option value='india'>India</Option>
@@ -131,6 +150,24 @@ const EditForm = () => {
           />
         </div>
 
+        <div >
+          <Input
+            onChange={(e) => {
+              const file = e.target.files[0];
+              formik.setFieldValue('image', file);
+              const reader = new FileReader();
+              reader.readAsDataURL(file);
+              reader.addEventListener('load', (e) => {
+                formik.setFieldValue('imageShow', e.target.result);
+              })
+            }}
+            name='image'
+            type='file'
+            label="Select Image" />
+          {formik.values.imageShow && !formik.errors.image && <img src={formik.values.imageShow} alt="jhvhjvj" className='mt-3' />}
+
+          {formik.errors.image && formik.touched.image && <p className='text-pink-400'>{formik.errors.image}</p>}
+        </div>
 
 
         <div >
