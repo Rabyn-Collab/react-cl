@@ -2,7 +2,7 @@ import React from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import RootLayout from './ui/RootLayout';
 import Login from './features/auth/Login';
-import { useGetAllUsersQuery } from './features/auth/authApi';
+// import { useGetAllUsersQuery } from './features/auth/authApi';
 
 const App = () => {
 
