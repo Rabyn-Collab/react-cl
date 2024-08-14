@@ -5,9 +5,9 @@ const Header = () => {
   return (
     <div className='bg-black text-white flex px-5 py-3 items-baseline justify-between'>
 
-      <h1 className='text-2xl'>Blogs</h1>
+      <h1 className='text-2xl'>Shop</h1>
       <nav>
-        <NavLink to='/add-blog'>Add Blog</NavLink>
+        <NavLink to='/login'>Login</NavLink>
       </nav>
 
 
