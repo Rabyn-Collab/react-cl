@@ -2,6 +2,7 @@ import React from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import RootLayout from './ui/RootLayout';
 import Login from './features/auth/Login';
+import SignUp from './features/auth/SignUp';
 // import { useGetAllUsersQuery } from './features/auth/authApi';
 
 const App = () => {
@@ -28,6 +29,11 @@ const App = () => {
         {
           path: 'login',
           element: <Login />
+        },
+
+        {
+          path: 'register',
+          element: <SignUp />
         },
 
 

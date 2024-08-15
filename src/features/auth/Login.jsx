@@ -1,14 +1,18 @@
-import { Button, Input } from '@material-tailwind/react'
+import { Button, Input, Typography } from '@material-tailwind/react'
 import { useFormik } from 'formik'
 import React from 'react'
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router';
 import { useLoginUserMutation } from './authApi';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../users/userSlice';
 
 
 const Login = () => {
   const [loginUser, { isLoading }] = useLoginUserMutation();
-
+  const dispatch = useDispatch();
   const nav = useNavigate();
 
   const loginSchema = Yup.object({
@@ -21,8 +25,15 @@ const Login = () => {
       email: '',
       password: ''
     },
-    onSubmit: (val) => {
+    onSubmit: async (val) => {
+      try {
+        const response = await loginUser(val).unwrap();
+        dispatch(setUser(response));
 
+        toast.success('successfully logged In');
+      } catch (err) {
+        toast.error(`${err.data?.message}`);
+      }
     },
     validationSchema: loginSchema
   });
@@ -33,7 +44,7 @@ const Login = () => {
   return (
     <div className='max-w-sm p-10'>
 
-
+      <Typography variant='h4' className='mb-5'>Login Form</Typography>
       <form onSubmit={formik.handleSubmit} className='space-y-7'>
 
         <div >
@@ -57,14 +68,22 @@ const Login = () => {
 
 
 
+        <div>
+
+          <Typography color="gray" className="mt-4  font-normal">
+            Don't have an Account ?{" "}
+            <Link to={'/register'}>  <button className="font-medium text-gray-900">
+              Sign Up
+            </button></Link>
+          </Typography>
+        </div>
 
 
 
 
 
 
-
-        <Button type='submit'>Submit</Button>
+        <Button loading={isLoading} type='submit'>Submit</Button>
 
 
       </form>
