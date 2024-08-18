@@ -3,12 +3,14 @@ import { useFormik } from 'formik'
 import React from 'react'
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router';
+import { useSignUpUserMutation } from './authApi';
+import { toast } from 'react-toastify';
 
 
 
 const SignUp = () => {
 
-
+  const [signUpUser, { isLoading }] = useSignUpUserMutation();
   const nav = useNavigate();
 
   const registerSchema = Yup.object({
@@ -25,9 +27,11 @@ const SignUp = () => {
     },
     onSubmit: async (val) => {
       try {
-
+        const response = await signUpUser(val).unwrap();
+        nav(-1);
+        toast.success('successfully registered');
       } catch (err) {
-
+        toast.error(`${err.data?.message}`);
       }
     },
     validationSchema: registerSchema
@@ -62,6 +66,7 @@ const SignUp = () => {
             onChange={formik.handleChange}
             value={formik.values.password}
             name='password'
+            type='password'
             label="Password" />
           {formik.errors.password && formik.touched.password && <p className='text-pink-400'>{formik.errors.password}</p>}
         </div>
@@ -85,7 +90,7 @@ const SignUp = () => {
 
 
 
-        <Button type='submit'>Submit</Button>
+        <Button loading={isLoading} type='submit'>Submit</Button>
 
 
       </form>

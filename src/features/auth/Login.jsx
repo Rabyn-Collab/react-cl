@@ -29,7 +29,7 @@ const Login = () => {
       try {
         const response = await loginUser(val).unwrap();
         dispatch(setUser(response));
-
+        nav(-1);
         toast.success('successfully logged In');
       } catch (err) {
         toast.error(`${err.data?.message}`);
@@ -60,6 +60,7 @@ const Login = () => {
             onChange={formik.handleChange}
             value={formik.values.password}
             name='password'
+            type='password'
             label="Password" />
           {formik.errors.password && formik.touched.password && <p className='text-pink-400'>{formik.errors.password}</p>}
         </div>
