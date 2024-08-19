@@ -3,9 +3,14 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import RootLayout from './ui/RootLayout';
 import Login from './features/auth/Login';
 import SignUp from './features/auth/SignUp';
+import { useCategoryDataQuery } from './features/shared/mealApi';
 // import { useGetAllUsersQuery } from './features/auth/authApi';
 
 const App = () => {
+
+  const { isError, isLoading, data } = useCategoryDataQuery('Seafood');
+
+  console.log(data);
 
   // const { isError, isLoading, data, error } = useGetAllUsersQuery('hello jee see', { pollingInterval: 3000 });
 
