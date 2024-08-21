@@ -12,21 +12,39 @@ import {
 import {
   UserCircleIcon,
   ChevronDownIcon,
-  Cog6ToothIcon,
-  InboxArrowDownIcon,
-  LifebuoyIcon,
+  ShoppingBagIcon,
   PowerIcon,
 } from "@heroicons/react/24/solid";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { removeUser } from "../features/users/userSlice";
 
-// profile menu component
-const profileMenuItems = [
+
+const userMenu = [
   {
-    label: "User Profile",
+    label: "Profile",
     icon: UserCircleIcon,
     value: 'profile'
+  },
+
+  {
+    label: "Sign Out",
+    icon: PowerIcon,
+    value: 'signout'
+  },
+];
+
+const adminMenu = [
+  {
+    label: "Profile",
+    icon: UserCircleIcon,
+    value: 'profile'
+  },
+
+  {
+    label: "Products",
+    icon: ShoppingBagIcon,
+    value: 'product'
   },
 
   {
@@ -43,6 +61,7 @@ const profileMenuItems = [
 const Header = () => {
 
   const { user } = useSelector((state) => state.userSlice);
+  const menuItems = user?.isAdmin ? adminMenu : userMenu;
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const dispatch = useDispatch();
   const closeMenu = () => setIsMenuOpen(false);
@@ -86,8 +105,8 @@ const Header = () => {
               </Button>
             </MenuHandler>
             <MenuList className="p-1">
-              {profileMenuItems.map(({ label, icon, value }, key) => {
-                const isLastItem = key === profileMenuItems.length - 1;
+              {menuItems.map(({ label, icon, value }, key) => {
+                const isLastItem = key === menuItems.length - 1;
                 return (
                   <MenuItem
                     key={label}
