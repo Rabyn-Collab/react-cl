@@ -16,7 +16,7 @@ import {
   PowerIcon,
 } from "@heroicons/react/24/solid";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { removeUser } from "../features/users/userSlice";
 
 
@@ -65,6 +65,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const dispatch = useDispatch();
   const closeMenu = () => setIsMenuOpen(false);
+  const nav = useNavigate();
 
   return (
     <Navbar className="mx-auto max-w-screen-xl p-2 lg:rounded-full lg:pl-6">
@@ -114,6 +115,11 @@ const Header = () => {
                       switch (value) {
                         case 'signout':
                           dispatch(removeUser());
+                          break;
+
+                        case 'product':
+                          nav('/product-admin');
+                          break;
 
                       }
                       closeMenu();

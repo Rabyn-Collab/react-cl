@@ -3,6 +3,9 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import RootLayout from './ui/RootLayout';
 import Login from './features/auth/Login';
 import SignUp from './features/auth/SignUp';
+import ProductAdmin from './features/admin/ProductAdmin';
+import AddForm from './features/admin/AddForm';
+import ProductEdit from './features/admin/product_edit/ProductEdit';
 // import { useGetAllUsersQuery } from './features/auth/authApi';
 
 const App = () => {
@@ -36,6 +39,21 @@ const App = () => {
         {
           path: 'register',
           element: <SignUp />
+        },
+
+        {
+          path: 'product-admin',
+          element: <ProductAdmin />
+        },
+
+        {
+          path: 'product-add',
+          element: <AddForm />
+        },
+
+        {
+          path: 'product-edit/:id',
+          element: <ProductEdit />
         },
 
 
