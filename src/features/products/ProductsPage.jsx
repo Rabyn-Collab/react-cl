@@ -9,10 +9,10 @@ const ProductsPage = () => {
     return <h1>Loading....</h1>
   }
   return (
-    <div>
+    <div className='p-4 grid grid-cols-3 gap-6'>
 
       {data.map((product) => {
-        return <ProductCard product={product} />;
+        return <ProductCard product={product} key={product._id} />;
       })}
 
 

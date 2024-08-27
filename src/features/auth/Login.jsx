@@ -7,7 +7,8 @@ import { useLoginUserMutation } from './authApi';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
-import { setUser } from '../users/userSlice';
+import { setUserToLocal } from '../users/userSlice';
+
 
 
 const Login = () => {
@@ -28,7 +29,7 @@ const Login = () => {
     onSubmit: async (val) => {
       try {
         const response = await loginUser(val).unwrap();
-        dispatch(setUser(response));
+        dispatch(setUserToLocal(response));
         nav(-1);
         toast.success('successfully logged In');
       } catch (err) {

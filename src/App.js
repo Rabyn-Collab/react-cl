@@ -6,6 +6,9 @@ import SignUp from './features/auth/SignUp';
 import ProductAdmin from './features/admin/ProductAdmin';
 import AddForm from './features/admin/AddForm';
 import ProductEdit from './features/admin/product_edit/ProductEdit';
+import ProductsPage from './features/products/ProductsPage';
+import ProductDetail from './features/products/ProductDetail';
+import CartPage from './features/cart/CartPage';
 // import { useGetAllUsersQuery } from './features/auth/authApi';
 
 const App = () => {
@@ -30,6 +33,10 @@ const App = () => {
       path: '/',
       element: <RootLayout />,
       children: [
+        {
+          index: true,
+          element: <ProductsPage />
+        },
 
         {
           path: 'login',
@@ -49,6 +56,15 @@ const App = () => {
         {
           path: 'product-add',
           element: <AddForm />
+        },
+        {
+          path: 'cart-page',
+          element: <CartPage />
+        },
+
+        {
+          path: 'product-detail/:id',
+          element: <ProductDetail />
         },
 
         {

@@ -14,6 +14,7 @@ const ProductAdmin = () => {
     return <h1>Loading....</h1>;
   }
   console.log(data);
+  console.log(error);
 
   return (
     <div className="p-5">
